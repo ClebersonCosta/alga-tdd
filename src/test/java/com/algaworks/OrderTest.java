@@ -9,4 +9,10 @@ public class OrderTest {
         Order order = new Order();
     }
 
+    @Test
+    void shouldAllowAddItemToOrder() {
+        Order order = new Order();
+        order.addItem("Sabonete", 3.0, 10);
+    }
+
 }
