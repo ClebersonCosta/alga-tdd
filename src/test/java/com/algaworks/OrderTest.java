@@ -1,5 +1,6 @@
 package com.algaworks;
 
+import com.algaworks.discount.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +18,16 @@ public class OrderTest {
 
     @BeforeEach
     void setUp() {
-        order = new Order();
+        DiscountRuleCalculator calculator =
+                new ThirdRuleDiscountCalculator(
+                        new SecondRuleDiscountCalculator(
+                                new FirstRuleDiscountCalculator(
+                                        new NoDiscount(null)
+                                )
+                        )
+                );
+
+        order = new Order(calculator);
     }
 
     @Test
