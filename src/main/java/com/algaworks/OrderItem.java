@@ -2,16 +2,15 @@ package com.algaworks;
 
 import java.util.Objects;
 
-public class ItemOrder {
+public class OrderItem {
 
     private String description;
     private double unitValue;
     private double quantity;
 
-    public ItemOrder() {
-            }
+    public OrderItem() {}
 
-    public ItemOrder(String description, double unitValue, double quantity) {
+    public OrderItem(String description, double unitValue, double quantity) {
         this.description = description;
         this.unitValue = unitValue;
         this.quantity = quantity;
@@ -44,7 +43,7 @@ public class ItemOrder {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        ItemOrder orderItem = (ItemOrder) o;
+        OrderItem orderItem = (OrderItem) o;
         return Double.compare(unitValue, orderItem.unitValue) == 0 && Double.compare(quantity, orderItem.quantity) == 0 && Objects.equals(description, orderItem.description);
     }
 
